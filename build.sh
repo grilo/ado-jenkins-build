@@ -7,12 +7,13 @@ go get
 
 version=$(cat VERSION || echo "no_version_info")
 commit=$(git rev-parse --short HEAD || echo "not_git_repository")
-buildTime=$(date --iso-8601=seconds)
+buildTimestamp=$(date --iso-8601=seconds)
 
 gofmt -w *.go
 
-go build -ldflags "-X 'main.version=$version' -X 'main.commit=$commit' -X 'main.buildTime=$buildTime'"
+go build -ldflags "-X 'main.version=$version' -X 'main.commit=$commit' -X 'main.buildTimestamp=$buildTimestamp'"
 
 echo ""
 echo ""
-./jenkins-integration
+
+TRACE=1 BUILD_SOURCEBRANCH=hello ./jenkins-integration -g -u http://localhost:8080/job/testjob
