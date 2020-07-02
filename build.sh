@@ -16,4 +16,4 @@ go build -ldflags "-X 'main.version=$version' -X 'main.commit=$commit' -X 'main.
 echo ""
 echo ""
 
-TRACE=1 BUILD_SOURCEBRANCH=hello ./jenkins-integration -g -u http://localhost:8080/job/testjob
+TRACE=1 BUILD_SOURCEBRANCH=hello ./ado-jenkins-build -g -u http://localhost:8080/job/testjob

@@ -1,4 +1,4 @@
-module jenkins-integration
+module ado-jenkins-build
 
 go 1.13
 

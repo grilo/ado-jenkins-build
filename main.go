@@ -15,10 +15,10 @@ var (
 )
 
 func main() {
-	log.Printf("Initializing jenkins-integration-%s (%s)", version, commit)
+	log.Printf("Initializing ado-jenkins-build-%s (%s)", version, commit)
 	log.Printf("Build timestamp: %s", buildTimestamp)
 
-	parser := argparse.NewParser("jenkins-integration", "Executes a jenkins job from Azure DevOps and waits for its completion. Returns 0 on SUCCESS, 1 on FAILURE, 2 on ABORTED, 3 on UNSTABLE and 4 on NOT_BUILT.")
+	parser := argparse.NewParser("ado-jenkins-build", "Executes a jenkins job from Azure DevOps and waits for its completion. Returns 0 on SUCCESS, 1 on FAILURE, 2 on ABORTED, 3 on UNSTABLE and 4 on NOT_BUILT.")
 
 	argEmulateGitLab := parser.Flag("g", "gitlab", &argparse.Options{Help: "Emulate gitlab variables (useful when migrating from GitLab)."})
 	argTimeout := parser.Int("t", "timeout", &argparse.Options{
